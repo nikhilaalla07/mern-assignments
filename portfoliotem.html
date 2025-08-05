@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Link to Google Fonts for 'Inter' -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Universal Box Sizing: This is crucial for predictable layouts.
+           It makes sure padding and border are included in the element's total width and height. */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* Using the Inter font */
+            margin: 0;
+            background-color: #f0f2f5; /* Light grey background */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures footer stays at the bottom */
+        }
+
+        /* Container for main content to center it and limit width */
+        .container {
+            max-width: 960px; /* Maximum width for the content */
+            margin: 20px auto; /* Centers the container horizontally with vertical margin */
+            padding: 0 20px; /* Horizontal padding for smaller screens */
+            flex-grow: 1; /* Allows the container to grow and push the footer down */
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #087df2; /* Dark blue-grey */
+            color: #060606; /* Light text color */
+            padding: 60px 20px; /* Top/bottom padding for height, left/right for content */
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin-bottom: 20px; /* Space below the header */
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin: 0 0 10px; /* No top margin, some bottom margin */
+            font-weight: 700; /* Bold font weight */
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin: 0;
+            font-weight: 300; /* Light font weight */
+        }
+
+        /* Section Styling */
+        section {
+            background-color: #93e691; /* White background for sections */
+            margin-bottom: 20px; /* Space between sections */
+            padding: 30px; /* Inner spacing around content */
+            border-radius: 10px; /* Rounded corners for sections */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Soft shadow */
+        }
+
+        section h2 {
+            color: #34495e; /* Darker blue-grey for headings */
+            font-size: 2em;
+            margin-top: 0; /* No top margin */
+            margin-bottom: 20px; /* Space below heading */
+            border-bottom: 2px solid #3008d1; /* Blue underline */
+            padding-bottom: 10px; /* Space between text and underline */
+        }
+
+        /* About Me Section Specifics */
+        .about-me p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* Projects Section Specifics */
+        .projects-grid {
+            display: grid; /* Using CSS Grid for layout */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+            gap: 25px; /* Space between grid items */
+        }
+
+        .project-card {
+            background-color: #f8f9fa; /* Lighter background for cards */
+            border: 1px solid #e0e0e0; /* Light border */
+            padding: 20px; /* Inner spacing */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+        }
+
+        .project-card h3 {
+            color: #2980b9; /* Blue for project titles */
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 0.95em;
+            color: #555;
+            flex-grow: 1; /* Allows paragraphs to take available space */
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #3498db; /* Blue button */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .project-card a:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c3e50; /* Dark blue-grey, matches header */
+            color: #ecf0f1;
+            text-align: center;
+            padding: 25px 0; /* Vertical padding */
+            margin-top: 30px; /* Space above the footer */
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 15px;
+            }
+
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .container {
+                margin: 15px auto;
+                padding: 0 15px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr; /* Stack cards on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nikhila Alla</h1>
+        <p>Passionate Web Developer & Designer</p>
+    </header>
+
+    <div class="container">
+        <section class="about-me">
+            <h2>About Me</h2>
+            <p>
+                Hello! I'm Nikhila, a front-end web developer dedicated to crafting beautiful and functional user experiences.
+                With a strong foundation in HTML, CSS, and JavaScript, I enjoy bringing ideas to life on the web.
+                I'm constantly learning new technologies and striving to build accessible, performant, and responsive applications.
+                My passion lies in solving problems and creating intuitive designs that make a real impact.
+            </p>
+        </section>
+
+        <section class="projects">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Interactive To-Do List</h3>
+                    <p>A dynamic web application for managing daily tasks, built with vanilla JavaScript and local storage for persistence.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Recipe Finder App</h3>
+                    <p>Utilized a public API to fetch and display recipes based on user search queries, featuring responsive design.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Personal Blog Platform</h3>
+                    <p>A simple, static blog site designed with a focus on clean typography and a minimalist aesthetic using pure CSS.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>E-commerce Product Page</h3>
+                    <p>A detailed product display page showcasing various layout techniques and interactive elements for a seamless shopping experience.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Jane Doe. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
