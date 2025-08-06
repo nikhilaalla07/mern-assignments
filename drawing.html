@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Shapes</title>
+    <style>
+        /* Universal Box Sizing for predictable layouts */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #e8b0da; /* Light blue background for a sky effect */
+            gap: 40px; /* Space between the shape sections */
+            padding: 20px;
+        }
+
+        .shape-container {
+            background-color: #80c3ef;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px; /* Limit container width */
+        }
+
+        .shape-container h2 {
+            color: #263238;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #00bcd4;
+            padding-bottom: 10px;
+        }
+
+        /* --- House Drawing --- */
+        .house-drawing {
+            position: relative; /* Allows positioning of children */
+            width: 200px;
+            height: 100px;
+            margin: 30px auto;
+        }
+
+        .house-body {
+            width: 80%;
+            height: 70%;
+            background-color: #8d6e63; /* Brown */
+            border: 2px solid #5d4037;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .house-roof {
+            width: 0;
+            height: 0;
+            /* Creates a triangle using borders */
+            border-left: 80px solid transparent; /* Half width of house */
+            border-right: 80px solid transparent; /* Half width of house */
+            border-bottom: 60px solid #d32f2f; /* Red roof color, height of triangle */
+            position: absolute;
+            top: -30px; /* Position above the house body */
+            left: 0;
+        }
+
+        .house-door {
+            width: 30px;
+            height: 60px;
+            background-color: #4e342e; /* Darker brown */
+            border: 1px solid #3e2723;
+            position: absolute;
+            bottom: 0;
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for exact centering */
+        }
+
+        .house-window {
+            width: 25px;
+            height: 25px;
+            background-color: #bbdefb; /* Light blue for window */
+            border: 1px solid #64b5f6;
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            border-radius: 5px; /* Slightly rounded window corners */
+        }
+
+        /* --- Sun Drawing --- */
+        .sun-drawing {
+            width: 120px;
+            height: 120px;
+            background-color: #ffeb3b; /* Yellow */
+            border-radius: 50%; /* Makes it a perfect circle */
+            position: relative;
+            margin: 30px auto;
+            box-shadow: 0 0 0 10px rgba(255, 235, 59, 0.4), /* Inner glow */
+                        0 0 0 20px rgba(255, 235, 59, 0.2), /* Middle glow */
+                        0 0 0 30px rgba(255, 235, 59, 0.1); /* Outer glow/rays */
+            animation: pulse 2s infinite alternate; /* Simple animation */
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        /* --- Rainbow Drawing --- */
+        .rainbow-drawing {
+            position: relative;
+            width: 300px;
+            height: 150px; /* Half of the max diameter of the largest arc */
+            overflow: hidden; /* Hides the bottom half of the circles */
+            margin: 30px auto;
+        }
+
+        .rainbow-arc {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 0 0; /* Top half circle */
+            border-style: solid;
+            border-color: transparent; /* Default transparent */
+            border-width: 15px; /* Thickness of each arc */
+        }
+
+        /* Each arc with different color and size */
+        .rainbow-arc:nth-child(1) {
+            width: 300px;
+            height: 150px;
+            border-top-color: #ff0000; /* Red */
+            z-index: 7;
+        }
+        .rainbow-arc:nth-child(2) {
+            width: 270px;
+            height: 135px;
+            border-top-color: #ff7f00; /* Orange */
+            z-index: 6;
+        }
+        .rainbow-arc:nth-child(3) {
+            width: 240px;
+            height: 120px;
+            border-top-color: #ffff00; /* Yellow */
+            z-index: 5;
+        }
+        .rainbow-arc:nth-child(4) {
+            width: 210px;
+            height: 105px;
+            border-top-color: #00ff00; /* Green */
+            z-index: 4;
+        }
+        .rainbow-arc:nth-child(5) {
+            width: 180px;
+            height: 90px;
+            border-top-color: #0000ff; /* Blue */
+            z-index: 3;
+        }
+        .rainbow-arc:nth-child(6) {
+            width: 150px;
+            height: 75px;
+            border-top-color: #4b0082; /* Indigo */
+            z-index: 2;
+        }
+        .rainbow-arc:nth-child(7) {
+            width: 120px;
+            height: 60px;
+            border-top-color: #9400d3; /* Violet */
+            z-index: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .shape-container {
+                padding: 20px;
+            }
+
+            .shape-container h2 {
+                font-size: 1.5em;
+            }
+
+            .house-drawing, .sun-drawing, .rainbow-drawing {
+                transform: scale(0.8); /* Scale down for smaller screens */
+                margin: 15px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shape-container">
+        <h2>The House 🏡</h2>
+        <div class="house-drawing">
+            <div class="house-body"></div>
+            <div class="house-roof"></div>
+            <div class="house-door"></div>
+            <div class="house-window"></div>
+        </div>
+    </div>
+
+    <div class="shape-container">
+        <h2>The Sun ☀️</h2>
+        <div class="sun-drawing"></div>
+    </div>
+
+    <div class="shape-container">
+        <h2>The Rainbow 🌈</h2>
+        <div class="rainbow-drawing">
+            <div class="rainbow-arc"></div>
+            <div class="rainbow-arc"></div>
+            <div class="rainbow-arc"></div>
+            <div class="rainbow-arc"></div>
+            <div class="rainbow-arc"></div>
+            <div class="rainbow-arc"></div>
+            <div class="rainbow-arc"></div>
+        </div>
+    </div>
+
+</body>
+</html>
